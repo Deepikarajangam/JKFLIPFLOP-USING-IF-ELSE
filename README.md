@@ -45,29 +45,37 @@ For different input combinations generate the timing diagram.
 **PROGRAM**
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by:R.DEEPIKA RegisterNumber:24900220
-```module jkf(j,k,clk,q,qbar);
-input j,k,clk;
-output reg q,qbar;
-initial
-begin
-q=1'b0;
-q=1'b1;
-end
-
-always @(posedge clk)
-begin
-q<=(j&~q)|(~k&q);
-qbar<=~q;
-end 
-endmodule ```
+``` module jk(j,k,clk,rst,q);
+input j,k;
+input clk,rst;
+output q;
+reg q;
+always@(posedge clk or negedge rst)
+       if(~rst==0)
+		 q=1'b0;
+		 else
+		 case({j,k})
+		 2'b00:q=q;
+		 2'b01:q=0;
+		 2'b10:q=1;
+		 2'b11:q=~q;
+		 endcase
+		 endmodule 
+   ```
 */
 
+![image](https://github.com/user-attachments/assets/b6fb75ec-7c82-4e1c-be77-96a647d4b630)
+
+
+
 **RTL LOGIC FOR FLIPFLOPS**
-![image](https://github.com/user-attachments/assets/2b1cffeb-49dc-47bb-ac9d-cc0ba1d1d3cc)
+
+![image](https://github.com/user-attachments/assets/e036ca74-361d-4859-b94e-f46fcb20acaf)
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-![image](https://github.com/user-attachments/assets/e2987ee1-b045-4e64-aed0-35f8b9f7a064)
+
+![image](https://github.com/user-attachments/assets/d5bedee0-f537-4971-b90f-5a2fbb296314)
 
 
 **RESULTS**
