@@ -79,4 +79,4 @@ always@(posedge clk or negedge rst)
 
 
 **RESULTS**
-Therefore JK-FLIPFLOPmoduling using verilog and validating their functionally using their functional tables is verify.
+Therefore JK-FLIPFLOPmoduling counter in always@ method using verilog and validating their functionally using their functional tables is verify.
